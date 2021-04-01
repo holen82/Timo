@@ -17,7 +17,7 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+	<h1>Hei {name}!</h1>
 <!--
     {#if henterData}
         <p>Henter data, vennligs vent</p>
