@@ -1,10 +1,31 @@
 <script>
-	export let name;
+    // import { counter } from "./stores/tabelldata.js";
+    import { onMount } from "svelte";
+
+    const apiURL = "https://daydream.blob.core.windows.net/data/standings.json";
+    let data = [];
+    let henterData = true;
+
+    export let name;
+    
+    onMount(async function() {
+        const response = await fetch(apiURL);
+        data = (await response.json()).api.standings[0];
+        // henterData = false;
+        // console.log(data);
+    });
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<!--
+    {#if henterData}
+        <p>Henter data, vennligs vent</p>
+    {:else}
+        {#each data as lag }
+        {/each}
+    {/if}
+    -->
 </main>
 
 <style>

@@ -23,3 +23,6 @@ export CLIENT_URL="$(gp url 35729)/livereload.js?snipver=1&port=443"
 
 This will set `CLIENT_URL` with the workspace url of `35729` (default port for livereload).
 
+PL 2020-2021: "league_id":2790
+Team: "team_id":49, "name":"Chelsea"
+https://rapidapi.com/api-sports/api/api-football?endpoint=apiendpoint_ebdc9e62-898f-4a32-95a8-582a53f2266a
