@@ -11,21 +11,44 @@
     onMount(async function() {
         const response = await fetch(apiURL);
         data = (await response.json()).api.standings[0];
-        // henterData = false;
+        henterData = false;
         // console.log(data);
     });
 </script>
 
 <main>
-	<h1>Hei {name}!</h1>
-<!--
+	<h1>premier league tabell</h1>
+
     {#if henterData}
         <p>Henter data, vennligs vent</p>
     {:else}
-        {#each data as lag }
-        {/each}
+        <table>
+            <tr>
+                <td>
+                    Lag
+                </td>
+                <td>
+                    kamper
+                </td>
+                <td>
+                    poeng
+                </td>
+            </tr>
+            {#each data as lag,i  }
+                <tr>
+                    <td>
+                        {i+1}. {lag.teamName} 
+                    </td>
+                    <td>
+                        {lag.all.matchsPlayed}
+                    </td>
+                    <td>
+                        {lag.points}
+                     </td>   
+                </tr>
+            {/each}
+        </table>
     {/if}
-    -->
 </main>
 
 <style>
@@ -37,7 +60,7 @@
 	}
 
 	h1 {
-		color: #ff3e00;
+		color: blue;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
@@ -48,4 +71,17 @@
 			max-width: none;
 		}
 	}
+    tr {
+        line-height: 40px;
+        text-align: left;
+        white-space: nowrap;
+    }
+    tr:nth-child(even){
+        color:blue;
+    }
+    tr:nth-child(odd){
+        color:purple;
+    }
+
+    
 </style>
